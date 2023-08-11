@@ -1,7 +1,3 @@
-function log(input) {
-	console.log(input);
-}
-
 const who = [
 "My dog ",
 "John ",
@@ -45,29 +41,28 @@ const when = [
 "last week."
 ];
 
-const excuse = document.querySelector("#excuse");
+let excuseElement = document.querySelector("#excuse");
+let excuseBtn = document.querySelector("#excuseBtn")
 
-// Picking random items function
 function randomItem(array) {
 	let randomNumber = Math.round(Math.random() * array.length);
-	let randomItem = array[randomNumber];
-	return randomItem;
+	return array[randomNumber];
 }
 
-// Generating random item function calls
-let whoItem = randomItem(who);
-let actionItem = randomItem(action);
-let whatItem = randomItem(what);
-let whenItem = randomItem(when);
+function generateExcuse() {
+	let whoItem = randomItem(who);
+	let actionItem = randomItem(action);
+	let whatItem = randomItem(what);
+	let whenItem = randomItem(when);
 
-// Concatenating random items and turning into a string function
-function concatItems(whoItem, actionItem, whatItem, whenItem) {
-	let newExcuse = whoItem.concat(actionItem).concat(whatItem).concat(whenItem);
-	let newExcuseString = newExcuse.toString()
-	return newExcuseString;
+	let phrase = `${whoItem}${actionItem}${whatItem}${whenItem}`
+	return phrase;
 }
 
-// Generating the new excuse in HTML document
-let generatedExcuse = concatItems(whoItem, actionItem, whatItem, whenItem)
-excuse.innerText = generatedExcuse;
+excuseBtn.addEventListener("click", function() {
+	let generatedExcuse = generateExcuse();
+	excuseElement.textContent = generatedExcuse;
+})
+
+
 
