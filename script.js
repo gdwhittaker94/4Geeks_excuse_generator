@@ -1,6 +1,6 @@
 const who = [
 "My dog ",
-"John ",
+"John Lennon ",
 "Juana la loca ",
 "ChatGPT ",
 "My parrot ",
@@ -41,11 +41,13 @@ const when = [
 "last week."
 ];
 
-let excuseElement = document.querySelector("#excuse");
-let excuseBtn = document.querySelector("#excuseBtn")
+const excuseElement = document.querySelector("#excuse");
+const excuseBtn = document.querySelector("#excuseBtn")
+const emoji = document.querySelector(".emoji")
+
 
 function randomItem(array) {
-	let randomNumber = Math.round(Math.random() * array.length);
+	let randomNumber = Math.round(Math.random() * (array.length - 1));
 	return array[randomNumber];
 }
 
@@ -62,6 +64,17 @@ function generateExcuse() {
 excuseBtn.addEventListener("click", function() {
 	let generatedExcuse = generateExcuse();
 	excuseElement.textContent = generatedExcuse;
+
+	// Emoji Change
+	const emojis = ["😀", "😃", "😁", "😆", "😂", "😉", "😎", "🤣", "😄" ,"🐱"];
+
+	function emojiSelection (emojiList) {
+		let randomEmoji = Math.round(Math.random() * (emojiList.length - 1));
+		return emojiList[randomEmoji]
+	}
+
+	emoji.textContent = emojiSelection(emojis);
+
 })
 
 

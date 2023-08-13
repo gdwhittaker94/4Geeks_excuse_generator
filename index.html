@@ -14,23 +14,35 @@
     <script defer src="./script.js"></script>
     <title>GDW Excuse Generator</title>
   </head>
-  <body>
-    <div class="p-3">
-      <h4>The format of the excuse is as follows:</h4>
-      <ol>
-        <li>Who?</li>
-        <li>What did they do?</li>
-        <li>To what?</li>
-        <li>When?</li>
-      </ol>
+  <body class="bg-success-subtle border border-success border-5 vh-100">
+    <!-- ROW1 -->
+    <div class="container p-3">
+      <div class="row justify-content-center">
+        <div class="col-10 d-flex justify-content-center">
+          <p class="emoji mb-2">😟</p>
+        </div>
+      </div>
+      <!-- ROW2 -->
+      <div class="row justify-content-center">
+        <div class="col-10 d-flex flex-column text-center justify-content-center">
+          <h4 class="mb-3">In a bit of a pickle and need an excuse quickly?</h4>
+          <h4 class="mb-5">Use the silly excuse generator to help you!</h4>
+        </div>
+      </div>
+      <!-- ROW3 -->
+      <div class="row justify-content-center excuseRow">
+        <div class="col-12 text-center">
+          <p id="excuse" class="fst-italic text-primary fw-bold fs-4">Who? Action? What? When?</p>
+        </div>
+      </div>
+      <!-- Row4 -->
+      <div class="row justify-content-center">
+        <div class="d-flex justify-content-center">
+          <button type="button" id="excuseBtn" class="btn btn-success">
+            Give me an excuse!
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="p-3">
-      <h4>Here's your excuse!</h4>
-      <p id="excuse">Who? Action? What? When?</p>
-      <button type="button" id="excuseBtn">
-        New Excuse
-      </button>
-    </div>
-
   </body>
 </html>
