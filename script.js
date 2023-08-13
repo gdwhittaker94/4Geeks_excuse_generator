@@ -62,8 +62,8 @@ function generateExcuse() {
 }
 
 excuseBtn.addEventListener("click", function() {
-	let generatedExcuse = generateExcuse();
-	excuseElement.textContent = generatedExcuse;
+	// Excuse change
+	excuseElement.textContent = generateExcuse();
 
 	// Emoji Change
 	const emojis = ["😀", "😃", "😁", "😆", "😂", "😉", "😎", "🤣", "😄" ,"🐱"];
@@ -72,10 +72,16 @@ excuseBtn.addEventListener("click", function() {
 		let randomEmoji = Math.round(Math.random() * (emojiList.length - 1));
 		return emojiList[randomEmoji]
 	}
-
 	emoji.textContent = emojiSelection(emojis);
 
+
+	// Btn Color Change
+	const btnColors = ["btn bg-primary", "btn bg-secondary", "btn bg-success", "btn bg-danger", "btn bg-info", "btn bg-light", "btn btn-outline-primary", "btn btn-outline-secondary"]
+	
+	function colorSelection (bgColors) {
+		let randomColor = Math.round(Math.random() * (bgColors.length - 1));
+		return bgColors[randomColor]
+	}
+	excuseBtn.className = colorSelection(btnColors);
+
 })
-
-
-
