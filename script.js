@@ -1,3 +1,4 @@
+// *Arrays
 const who = [
 "My dog ",
 "John Lennon ",
@@ -40,48 +41,43 @@ const when = [
 "in a past life.",
 "last week."
 ];
-
+// *Variables
 const excuseElement = document.querySelector("#excuse");
 const excuseBtn = document.querySelector("#excuseBtn")
 const emoji = document.querySelector(".emoji")
+const emojis = ["😀", "😃", "😁", "😆", "😂", "😉", "😎", "🤣", "😄", "🐱"];
+const btnColors = ["btn bg-primary", "btn bg-secondary", "btn bg-success", "btn bg-danger", "btn bg-info", "btn bg-light", "btn btn-outline-primary", "btn btn-outline-secondary"];
 
-
+// *Random Array Item Selection
 function randomItem(array) {
-	let randomNumber = Math.round(Math.random() * (array.length - 1));
-	return array[randomNumber];
+	let randomItem = Math.round(Math.random() * (array.length - 1));
+	return array[randomItem];
 }
-
+// *Excuse Generator
 function generateExcuse() {
 	let whoItem = randomItem(who);
 	let actionItem = randomItem(action);
 	let whatItem = randomItem(what);
 	let whenItem = randomItem(when);
-
 	let phrase = `${whoItem}${actionItem}${whatItem}${whenItem}`
 	return phrase;
 }
-
+// *Emoji Generator
+function generateEmoji() {
+	let randomEmoji = randomItem(emojis);
+	return randomEmoji
+}
+// *Button Color Generator
+function generateBtnColor() {
+	let randomBtnColor = randomItem(btnColors);
+	return randomBtnColor
+}
+// *Button Click Actions
 excuseBtn.addEventListener("click", function() {
-	// Excuse change
+	// Changing Excuse
 	excuseElement.textContent = generateExcuse();
-
-	// Emoji Change
-	const emojis = ["😀", "😃", "😁", "😆", "😂", "😉", "😎", "🤣", "😄" ,"🐱"];
-
-	function emojiSelection (emojiList) {
-		let randomEmoji = Math.round(Math.random() * (emojiList.length - 1));
-		return emojiList[randomEmoji]
-	}
-	emoji.textContent = emojiSelection(emojis);
-
-
-	// Btn Color Change
-	const btnColors = ["btn bg-primary", "btn bg-secondary", "btn bg-success", "btn bg-danger", "btn bg-info", "btn bg-light", "btn btn-outline-primary", "btn btn-outline-secondary"]
-	
-	function colorSelection (bgColors) {
-		let randomColor = Math.round(Math.random() * (bgColors.length - 1));
-		return bgColors[randomColor]
-	}
-	excuseBtn.className = colorSelection(btnColors);
-
+	// Changing Emoji
+	emoji.textContent = generateEmoji();
+	// Changing Button Color
+	excuseBtn.className = generateBtnColor();
 })
